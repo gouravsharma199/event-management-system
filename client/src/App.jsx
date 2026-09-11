@@ -2,9 +2,9 @@ import { BrowserRouter,Routes,Route} from "react-router-dom";
 import './App.css'
 
 import Home from "./pages/Home";
-import EventDetail from "./pages/EventDetail";
+import EventDetail from "./pages/EventDetails";
 import Checkout from "./pages/Checkout";
-import MyBooking from "./pages/MyBooking";
+import MyBooking from "./pages/MyBookings";
 import BookingConfirmation from "./pages/BookingConfirmation";
 import AdminEvents from "./pages/AdminEvents";
 
