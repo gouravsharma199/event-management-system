@@ -1,13 +1,43 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import { BrowserRouter,Routes,Route} from "react-router-dom";
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+    return(
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element = {<Home/>} />
+
+                <Route 
+                path="/events/:id"
+                element = {<EventDetail/>}
+                 />
+                 <Route 
+                  path = "/checkout"
+                  element = {<Checkout/>}
+                 />
+                <Route 
+                  path = "/booking-confirmed"
+                  element = {<BookingConfirmation/>}
+                 />
+                 <Route 
+                  path = "/my-booking"
+                  element = {<MyBooking/>}
+                 />
+                 <Route 
+                  path = "/admin/events"
+                  element = {<AdminEvents/>}
+                 />
+
+            </Routes>
+
+        </BrowserRouter>
+    )
+
 
 }
     
 
-export default App
+export default App;
+
+
