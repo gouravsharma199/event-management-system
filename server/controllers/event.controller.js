@@ -14,9 +14,7 @@ const getEvents = async(req,res)=>{
             filter.status = status;
 
         }
-        const events = (await Event.find(filter)).toSorted({
-            date:1,
-        });
+        const events = await Event.find(filter);
         res.status(200).json({
             success : true,
             count: events.length,
@@ -26,7 +24,7 @@ const getEvents = async(req,res)=>{
     }catch(error){
         res.status(500).json({
             sucess:false,
-            message: "Failed to fetch events",
+            message: error.message,
         });
     }
 };
@@ -73,7 +71,7 @@ const createEvent = async (req,res)=>{
 
 const updateEvent = async(req,res)=>{
     try{
-        const evnet = await Event.findByIdAndUpdate(
+        const event = await Event.findByIdAndUpdate(
             req.params.id,
             req.body,{
                 new: true,
@@ -112,6 +110,7 @@ const deleteEvent = async (req,res)=>{
             message: "evnet deleted sucessfully"
         });
     }catch(error){
+        console.error("Get Event Error:",error);
         res.status(500).json({
             success:false,
             message:"Failed to delete event"
